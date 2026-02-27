@@ -1,4 +1,4 @@
-# PortFolio – Portal Pokémon
+# PP – Portal Pokémon
 
 Aplicação web que consome a [PokeAPI](https://pokeapi.co/) para listar Pokémon, tipos, habilidades, itens, oferecer um quiz e permitir montar uma equipe de até 6 Pokémon.
 
