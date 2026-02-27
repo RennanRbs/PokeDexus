@@ -1,0 +1,12 @@
+{
+  "name": "portfolio-backlog",
+  "version": "1.0.0",
+  "description": "Scripts para gerar o PDF do backlog do Portal Pokémon",
+  "private": true,
+  "scripts": {
+    "pdf:backlog": "md-to-pdf docs/backlog-portal-pokemon.md"
+  },
+  "devDependencies": {
+    "md-to-pdf": "^5.2.4"
+  }
+}

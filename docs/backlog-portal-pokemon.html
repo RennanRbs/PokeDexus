@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Backlog do Produto – Portal Pokémon (PokeAPI)</title>
+  <style>
+    @media print {
+      body { margin: 1.2cm; font-size: 11pt; }
+      h1 { page-break-after: avoid; }
+      h2, h3 { page-break-after: avoid; }
+      table { page-break-inside: avoid; }
+      pre { page-break-inside: avoid; }
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      line-height: 1.5;
+      color: #1a1a1a;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+    }
+    h1 { font-size: 1.75rem; border-bottom: 2px solid #333; padding-bottom: 0.5rem; }
+    h2 { font-size: 1.25rem; margin-top: 2rem; }
+    h3 { font-size: 1.1rem; margin-top: 1.5rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.9rem; }
+    th, td { border: 1px solid #ccc; padding: 0.5rem 0.75rem; text-align: left; }
+    th { background: #f5f5f5; font-weight: 600; }
+    p { margin: 0.75rem 0; }
+    ul { margin: 0.5rem 0; padding-left: 1.5rem; }
+    pre { background: #f5f5f5; padding: 1rem; overflow-x: auto; font-size: 0.85rem; border-radius: 4px; }
+    strong { font-weight: 600; }
+    .meta { color: #555; font-size: 0.95rem; margin-bottom: 1.5rem; }
+    hr { border: none; border-top: 1px solid #ddd; margin: 2rem 0; }
+  </style>
+</head>
+<body>
+  <h1>Backlog do Produto – Portal Pokémon (PokeAPI)</h1>
+  <p class="meta"><strong>Projeto:</strong> Angular 15 + PrimeNG &nbsp;|&nbsp; <strong>Versão:</strong> 1.0 &nbsp;|&nbsp; <strong>Data:</strong> Fevereiro de 2025</p>
+  <p>Este documento descreve o backlog completo do produto <em>Portal Pokémon</em>, um site que consome a PokeAPI para exibir listagens, detalhes, tipos, habilidades, itens, quiz e a funcionalidade "Minha equipe". O objetivo é demonstrar as competências exigidas na vaga de Desenvolvedor Front-End: Angular 15, PrimeNG, consumo de APIs RESTful, componentes reutilizáveis, UX/UI, Git, testes unitários, Clean Code, Code Review e metodologias ágeis.</p>
+
+  <hr />
+  <h2>1. Visão do produto</h2>
+  <h3>Objetivo do site</h3>
+  <p>O Portal Pokémon é um portal web que utiliza a <a href="https://pokeapi.co/">PokeAPI</a> como fonte única de dados. O visitante pode:</p>
+  <ul>
+    <li>Navegar por uma lista de Pokémon com busca e filtros.</li>
+    <li>Ver detalhes de cada Pokémon (stats, tipos, habilidades, evoluções).</li>
+    <li>Explorar tipos de Pokémon e suas relações de vantagem/desvantagem.</li>
+    <li>Consultar habilidades e quais Pokémon as possuem.</li>
+    <li>Navegar por um catálogo de itens com filtros.</li>
+    <li>Opcionalmente, ver gerações/jogos e Pokémon por geração.</li>
+    <li>Responder a um quiz sobre Pokémon (tipo, nome, habilidade).</li>
+    <li>Montar "Minha equipe" com até 6 Pokémon (persistido localmente).</li>
+  </ul>
+  <p>Todas as telas seguem padrões de UX/UI consistentes e reutilizam componentes (cards, chips de tipo, tabelas, modais, busca).</p>
+  <h3>Stack técnica</h3>
+  <ul>
+    <li><strong>Front-end:</strong> Angular 15, PrimeNG, HTML5, CSS3, TypeScript</li>
+    <li><strong>API:</strong> PokeAPI (REST)</li>
+    <li><strong>Controle de versão:</strong> Git</li>
+    <li><strong>Qualidade:</strong> Testes unitários (Jasmine/Karma ou Jest), lint (ESLint), boas práticas (Clean Code, Code Review)</li>
+    <li><strong>Gestão do trabalho:</strong> Metodologias ágeis (Scrum/Kanban), backlog e sprints</li>
+  </ul>
+  <h3>Critérios de "pronto" gerais</h3>
+  <p>Uma história considera-se <strong>pronta</strong> quando:</p>
+  <ul>
+    <li>O código foi revisado (Code Review ou auto-revisão com checklist).</li>
+    <li>Os itens planejados possuem testes unitários quando aplicável.</li>
+    <li>Não há erros de lint no escopo alterado.</li>
+    <li>A funcionalidade atende aos critérios de aceite descritos na história.</li>
+  </ul>
+
+  <hr />
+  <h2>2. Épicos e user stories</h2>
+
+  <h3>Épico 1: Fundação e navegação</h3>
+  <p><strong>Objetivo:</strong> Estabelecer o projeto Angular, a estrutura de pastas, a integração com a PokeAPI e a navegação principal para que o usuário encontre todas as seções do site.</p>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>História</th><th>Critérios de aceite</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>F01</td><td>Como visitante, quero acessar uma home para entender o que o site oferece.</td><td>Home exibe seções ou links para Pokémon, Tipos, Habilidades, Itens, Quiz e Minha equipe; layout responsivo.</td><td>Must</td></tr>
+      <tr><td>F02</td><td>Como visitante, quero navegar entre seções por menu e breadcrumb.</td><td>Menu principal e breadcrumb presentes nas páginas; rotas funcionando corretamente.</td><td>Must</td></tr>
+      <tr><td>F03</td><td>Como desenvolvedor, quero o projeto Angular 15 com PrimeNG e estrutura de pastas (core, shared, features).</td><td>Estrutura de pastas criada; tema PrimeNG aplicado; README com instruções de setup.</td><td>Must</td></tr>
+      <tr><td>F04</td><td>Como desenvolvedor, quero serviços base para chamadas à PokeAPI (HTTP, tipagem).</td><td>Serviço genérico ou base para HTTP e interfaces TypeScript para os recursos utilizados.</td><td>Must</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Épico 2: Listagem e detalhe de Pokémon</h3>
+  <p><strong>Objetivo:</strong> Permitir que o visitante liste Pokémon de forma paginada, busque e filtre por tipo, e visualize detalhes completos e cadeia de evolução.</p>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>História</th><th>Critérios de aceite</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>P01</td><td>Como visitante, quero ver uma lista paginada de Pokémon.</td><td>Página "Pokémon" com tabela ou cards, paginação (ex.: 20 por página), dados da PokeAPI.</td><td>Must</td></tr>
+      <tr><td>P02</td><td>Como visitante, quero buscar Pokémon por nome.</td><td>Campo de busca com debounce; lista filtra por nome.</td><td>Must</td></tr>
+      <tr><td>P03</td><td>Como visitante, quero filtrar Pokémon por tipo.</td><td>Filtro por tipo (dropdown ou chips); lista atualiza conforme seleção.</td><td>Must</td></tr>
+      <tr><td>P04</td><td>Como visitante, quero ver detalhes de um Pokémon ao clicar.</td><td>Detalhe com foto, tipos, stats (HP, Ataque, etc.), habilidades; exibido em modal ou página dedicada.</td><td>Must</td></tr>
+      <tr><td>P05</td><td>Como visitante, quero ver a cadeia de evolução do Pokémon.</td><td>Na tela de detalhe, exibir evoluções (pré-evolução e próximas formas).</td><td>Should</td></tr>
+      <tr><td>P06</td><td>Como desenvolvedor, quero componente reutilizável de card de Pokémon.</td><td>Componente pokemon-card com input (pokémon) e output (click); usado na listagem e em outras telas.</td><td>Must</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Épico 3: Tipos e Habilidades</h3>
+  <p><strong>Objetivo:</strong> Permitir a exploração de tipos de Pokémon (lista e Pokémon por tipo, vantagens/desvantagens) e de habilidades (lista, busca e detalhe com Pokémon associados).</p>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>História</th><th>Critérios de aceite</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>T01</td><td>Como visitante, quero ver todos os tipos de Pokémon.</td><td>Página "Tipos" com lista ou grid de tipos (nome e cor ou ícone).</td><td>Must</td></tr>
+      <tr><td>T02</td><td>Como visitante, quero ver quais Pokémon pertencem a um tipo.</td><td>Ao clicar em um tipo, listar Pokémon daquele tipo (reutilizando componente de lista/card).</td><td>Must</td></tr>
+      <tr><td>T03</td><td>Como visitante, quero ver relações de vantagem/desvantagem do tipo.</td><td>Na tela do tipo, exibir "super efetivo contra" e "fraco contra".</td><td>Should</td></tr>
+      <tr><td>H01</td><td>Como visitante, quero ver lista de habilidades com busca.</td><td>Página "Habilidades" com listagem e busca por nome.</td><td>Must</td></tr>
+      <tr><td>H02</td><td>Como visitante, quero ver detalhe da habilidade e quais Pokémon a possuem.</td><td>Detalhe com nome, descrição e lista de Pokémon; reuso de card ou tabela.</td><td>Must</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Épico 4: Itens e Gerações</h3>
+  <p><strong>Objetivo:</strong> Oferecer catálogo de itens com filtro e detalhe e, se escopo permitir, listagem de gerações/jogos e Pokémon por geração.</p>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>História</th><th>Critérios de aceite</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>I01</td><td>Como visitante, quero ver catálogo de itens.</td><td>Página "Itens" com listagem (nome, categoria, ícone se disponível) a partir da PokeAPI.</td><td>Should</td></tr>
+      <tr><td>I02</td><td>Como visitante, quero filtrar itens por categoria e ver detalhe.</td><td>Filtro por categoria; ao clicar em item, exibir nome, descrição e efeito.</td><td>Should</td></tr>
+      <tr><td>G01</td><td>Como visitante, quero ver gerações/jogos e Pokémon de cada geração.</td><td>Página "Gerações" listando gerações; ao escolher, listar jogos e Pokémon daquela geração.</td><td>Could</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Épico 5: Quiz e engajamento</h3>
+  <p><strong>Objetivo:</strong> Propor um quiz com perguntas baseadas em dados da PokeAPI (tipo, nome, habilidade) e exibir pontuação ao final.</p>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>História</th><th>Critérios de aceite</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Q01</td><td>Como visitante, quero responder perguntas sobre Pokémon (tipo, nome, número).</td><td>Tela "Quiz" com pergunta e opções; dados vindos da PokeAPI; feedback de certo/errado.</td><td>Must</td></tr>
+      <tr><td>Q02</td><td>Como visitante, quero ver minha pontuação ao final do quiz.</td><td>Contador de acertos; ao terminar, exibir total e opção de jogar novamente.</td><td>Must</td></tr>
+      <tr><td>Q03</td><td>Como visitante, quero escolher categoria do quiz (tipo, nome, habilidade).</td><td>Dropdown ou botões para tipo de pergunta antes de iniciar.</td><td>Should</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Épico 6: Minha equipe</h3>
+  <p><strong>Objetivo:</strong> Permitir que o visitante monte uma equipe de até 6 Pokémon, persista localmente, visualize e remova itens.</p>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>História</th><th>Critérios de aceite</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>E01</td><td>Como visitante, quero adicionar Pokémon à "Minha equipe" (até 6).</td><td>Botão "Adicionar à equipe" no detalhe ou lista; persistência (ex.: localStorage); limite de 6.</td><td>Must</td></tr>
+      <tr><td>E02</td><td>Como visitante, quero ver e remover Pokémon da minha equipe.</td><td>Página "Minha equipe" com os 6 slots; opção de remover e lista atualizada.</td><td>Must</td></tr>
+      <tr><td>E03</td><td>Como visitante, quero ver minha equipe refletida na home (resumo).</td><td>Na home, exibir preview ou contador da equipe com link para a página.</td><td>Should</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Épico 7: Qualidade e boas práticas</h3>
+  <p><strong>Objetivo:</strong> Garantir testes unitários, tratamento de erros e loading nas chamadas de API, e documentação básica do projeto.</p>
+  <table>
+    <thead>
+      <tr><th>ID</th><th>História</th><th>Critérios de aceite</th><th>Prioridade</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>QD01</td><td>Como desenvolvedor, quero testes unitários nos serviços de API.</td><td>Serviços principais (Pokémon, Tipo, Habilidade) com testes (HttpClient mock, resposta mock).</td><td>Must</td></tr>
+      <tr><td>QD02</td><td>Como desenvolvedor, quero testes unitários em componentes críticos.</td><td>Pelo menos: card de Pokémon, barra de stats, busca; testes de input/output e interação.</td><td>Should</td></tr>
+      <tr><td>QD03</td><td>Como desenvolvedor, quero pipes testados (formatação de nome, número, tipo).</td><td>Pipes com testes unitários.</td><td>Should</td></tr>
+      <tr><td>QD04</td><td>Como desenvolvedor, quero tratamento de erro e loading nas chamadas de API.</td><td>Loading durante requisições; mensagem amigável em erro; tela não quebra.</td><td>Must</td></tr>
+      <tr><td>QD05</td><td>Como desenvolvedor, quero README com setup, scripts e decisões técnicas.</td><td>README com clone, install, run, estrutura de pastas e escolhas (Angular 15, PrimeNG, PokeAPI).</td><td>Must</td></tr>
+    </tbody>
+  </table>
+
+  <hr />
+  <h2>3. Sugestão de sprints</h2>
+  <p>As sprints abaixo têm duração sugerida de 2 semanas cada. Os IDs referem-se às user stories do backlog.</p>
+  <table>
+    <thead>
+      <tr><th>Sprint</th><th>Objetivo</th><th>IDs incluídos</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Sprint 1</strong></td><td>Fundação, navegação, listagem e detalhe de Pokémon, card reutilizável.</td><td>F01, F02, F03, F04, P01, P04, P06</td></tr>
+      <tr><td><strong>Sprint 2</strong></td><td>Busca e filtro de Pokémon, evoluções, módulo de tipos completo.</td><td>P02, P03, P05, T01, T02, T03</td></tr>
+      <tr><td><strong>Sprint 3</strong></td><td>Habilidades, itens, testes em serviços e tratamento de erro.</td><td>H01, H02, I01, I02, QD01, QD04</td></tr>
+      <tr><td><strong>Sprint 4</strong></td><td>Quiz e Minha equipe.</td><td>Q01, Q02, Q03, E01, E02, E03</td></tr>
+      <tr><td><strong>Sprint 5</strong></td><td>Gerações (opcional), testes em componentes e pipes, README.</td><td>G01, QD02, QD03, QD05</td></tr>
+    </tbody>
+  </table>
+
+  <hr />
+  <h2>4. Backlog para ferramentas (GitHub Issues / Trello)</h2>
+  <p>Lista de itens no formato sugerido para criação de issues ou cards:</p>
+  <pre>[Épico 1] F01 - Home com seções e links
+[Épico 1] F02 - Menu e breadcrumb
+[Épico 1] F03 - Projeto Angular 15 + PrimeNG + estrutura
+[Épico 1] F04 - Serviços base PokeAPI
+[Épico 2] P01 - Lista paginada de Pokémon
+[Épico 2] P02 - Busca por nome
+[Épico 2] P03 - Filtro por tipo
+[Épico 2] P04 - Detalhe do Pokémon
+[Épico 2] P05 - Cadeia de evolução
+[Épico 2] P06 - Componente pokemon-card reutilizável
+[Épico 3] T01 - Lista de tipos
+[Épico 3] T02 - Pokémon por tipo
+[Épico 3] T03 - Vantagens/desvantagens do tipo
+[Épico 3] H01 - Lista de habilidades com busca
+[Épico 3] H02 - Detalhe da habilidade e Pokémon
+[Épico 4] I01 - Catálogo de itens
+[Épico 4] I02 - Filtro e detalhe de item
+[Épico 4] G01 - Gerações e Pokémon por geração
+[Épico 5] Q01 - Quiz com perguntas
+[Épico 5] Q02 - Pontuação ao final
+[Épico 5] Q03 - Categoria do quiz
+[Épico 6] E01 - Adicionar à equipe (até 6)
+[Épico 6] E02 - Ver e remover da equipe
+[Épico 6] E03 - Resumo da equipe na home
+[Épico 7] QD01 - Testes em serviços
+[Épico 7] QD02 - Testes em componentes
+[Épico 7] QD03 - Testes em pipes
+[Épico 7] QD04 - Loading e tratamento de erro
+[Épico 7] QD05 - README completo</pre>
+
+  <hr />
+  <h2>5. Legenda</h2>
+  <ul>
+    <li><strong>Must (obrigatório):</strong> Item essencial para o MVP; o produto não está completo sem ele.</li>
+    <li><strong>Should (desejável):</strong> Importante para a experiência e a qualidade; deve ser feito se o tempo permitir.</li>
+    <li><strong>Could (opcional):</strong> Melhoria ou escopo extra; pode ser deixado para iterações futuras.</li>
+    <li><strong>Pronto:</strong> História considerada concluída quando atende aos critérios de aceite, passa por revisão de código (ou checklist de auto-revisão), possui testes unitários quando aplicável e não introduz erros de lint.</li>
+  </ul>
+</body>
+</html>
