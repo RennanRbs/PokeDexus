@@ -1,0 +1,32 @@
+<div class="pokemon-detail" *ngIf="pokemon">
+  <app-loading-spinner *ngIf="loading" message="Carregando..."></app-loading-spinner>
+  <div *ngIf="!loading" class="detail-content">
+    <div class="header">
+      <img [src]="imageUrl" [alt]="pokemon.name" class="sprite" />
+      <div class="info">
+        <h1>#{{ pokemon.id | padId }} {{ pokemon.name | titlecase }}</h1>
+        <button
+          *ngIf="teamService.canAdd() && !teamService.has(pokemon.id)"
+          pButton
+          label="Adicionar à equipe"
+          icon="pi pi-plus"
+          (click)="teamService.add(pokemon)"
+        ></button>
+        <span *ngIf="teamService.has(pokemon.id)" class="in-team">Na equipe</span>
+        <div class="types">
+          <app-type-chip *ngFor="let t of pokemon.types" [typeName]="t.type.name"></app-type-chip>
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h3>Stats</h3>
+      <app-stats-bar [stats]="stats"></app-stats-bar>
+    </div>
+    <div class="section" *ngIf="pokemon.abilities?.length">
+      <h3>Habilidades</h3>
+      <ul>
+        <li *ngFor="let a of pokemon.abilities">{{ a.ability.name | titlecase }}</li>
+      </ul>
+    </div>
+  </div>
+</div>

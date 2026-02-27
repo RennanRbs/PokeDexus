@@ -1,0 +1,5 @@
+<div class="item-detail" *ngIf="item">
+  <h2>{{ item.name | titlecase }}</h2>
+  <p *ngIf="item.category">Categoria: {{ item.category.name | titlecase }}</p>
+  <p *ngIf="effectText" class="effect">{{ effectText }}</p>
+</div>

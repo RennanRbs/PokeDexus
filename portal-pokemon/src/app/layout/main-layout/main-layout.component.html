@@ -1,0 +1,12 @@
+<div class="layout">
+  <header class="header">
+    <h1 class="logo">Portal Pokémon</h1>
+    <p-menu [model]="menuItems" styleClass="main-menu"></p-menu>
+  </header>
+  <nav class="breadcrumb-nav">
+    <p-breadcrumb [model]="breadcrumbItems" [home]="{ icon: 'pi pi-home', routerLink: '/home' }"></p-breadcrumb>
+  </nav>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

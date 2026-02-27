@@ -1,0 +1,13 @@
+<div class="ability-detail" *ngIf="ability">
+  <h2>{{ ability.name | titlecase }}</h2>
+  <p *ngIf="ability.effect_entries?.length" class="effect">
+    {{ getFirstEffect() }}
+  </p>
+  <h3>Pokémon com esta habilidade</h3>
+  <app-loading-spinner *ngIf="loading" message="Carregando..."></app-loading-spinner>
+  <div class="grid" *ngIf="!loading && pokemonList.length">
+    <a *ngFor="let p of pokemonList" [routerLink]="['/pokemon', p.id]" class="card-link">
+      <app-pokemon-card [pokemon]="p"></app-pokemon-card>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<div class="team">
+  <h2>Minha equipe</h2>
+  <p *ngIf="team.length < 6">Você pode ter até 6 Pokémon. Adicione na página de detalhe de cada Pokémon.</p>
+  <app-empty-state
+    *ngIf="team.length === 0"
+    message="Sua equipe está vazia. Navegue até um Pokémon e clique em Adicionar à equipe."
+  ></app-empty-state>
+  <div class="grid" *ngIf="team.length > 0">
+    <div *ngFor="let p of team" class="card-wrapper">
+      <app-pokemon-card [pokemon]="p" (cardClick)="goToPokemon(p.id)"></app-pokemon-card>
+      <button pButton icon="pi pi-times" class="p-button-danger p-button-sm remove-btn" (click)="remove(p.id)"></button>
+    </div>
+  </div>
+</div>

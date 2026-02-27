@@ -1,0 +1,23 @@
+.quiz {
+  max-width: 500px;
+  margin: 0 auto;
+  .score { font-weight: 600; }
+  .question {
+    .q-text { font-size: 1.1rem; }
+    .quiz-sprite {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      display: block;
+      margin: 1rem auto;
+    }
+    .options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    .next-btn { margin-top: 0.5rem; }
+  }
+}

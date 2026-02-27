@@ -1,0 +1,26 @@
+.pokemon-detail {
+  max-width: 800px;
+  margin: 0 auto;
+  .detail-content {
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .sprite {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+    }
+    .types { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  button, .in-team { margin-left: 0.5rem; }
+  .in-team { color: var(--green-500); font-weight: 600; }
+    .section {
+      margin-bottom: 1.5rem;
+      h3 { margin-top: 0; }
+    }
+    ul { padding-left: 1.5rem; }
+  }
+}

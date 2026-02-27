@@ -1,0 +1,13 @@
+<p-card styleClass="pokemon-card" (onClick)="onClick()">
+  <ng-template pTemplate="header">
+    <img [src]="imageUrl" [alt]="pokemon.name" class="card-image" />
+  </ng-template>
+  <ng-template pTemplate="title">
+    #{{ pokemon.id | padId }} {{ pokemon.name | titlecase }}
+  </ng-template>
+  <ng-template pTemplate="content">
+    <div class="types">
+      <app-type-chip *ngFor="let t of types" [typeName]="t.type.name"></app-type-chip>
+    </div>
+  </ng-template>
+</p-card>

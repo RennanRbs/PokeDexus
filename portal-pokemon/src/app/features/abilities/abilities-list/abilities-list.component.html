@@ -1,0 +1,24 @@
+<div class="abilities-list">
+  <h2>Habilidades</h2>
+  <app-search-bar placeholder="Buscar habilidade" (searchTerm)="onSearch($event)"></app-search-bar>
+  <app-loading-spinner *ngIf="loading" message="Carregando..."></app-loading-spinner>
+  <app-empty-state *ngIf="!loading && filteredAbilities.length === 0" message="Nenhuma habilidade encontrada."></app-empty-state>
+  <p-table
+    *ngIf="!loading && filteredAbilities.length > 0"
+    [value]="filteredAbilities"
+    [paginator]="true"
+    [rows]="15"
+    styleClass="p-datatable-sm"
+  >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nome</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-ability>
+      <tr (click)="goToDetail(ability.url)" class="row-click">
+        <td>{{ ability.name | titlecase }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

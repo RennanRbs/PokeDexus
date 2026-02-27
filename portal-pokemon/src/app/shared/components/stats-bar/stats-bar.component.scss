@@ -1,0 +1,19 @@
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.stat-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 40px;
+  align-items: center;
+  gap: 0.5rem;
+}
+.stat-name {
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+.stat-value {
+  text-align: right;
+  font-weight: 600;
+}

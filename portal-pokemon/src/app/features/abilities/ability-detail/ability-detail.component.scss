@@ -1,0 +1,11 @@
+.ability-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  .effect { margin-bottom: 1.5rem; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .card-link { text-decoration: none; color: inherit; }
+}

@@ -1,0 +1,19 @@
+.team {
+  max-width: 1200px;
+  margin: 0 auto;
+  h2 { margin-top: 0; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+  .card-wrapper {
+    position: relative;
+    .remove-btn {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      z-index: 1;
+    }
+  }
+}

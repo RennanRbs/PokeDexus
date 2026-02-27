@@ -1,0 +1,33 @@
+<div class="pokemon-list">
+  <h2>Pokémon</h2>
+  <div class="toolbar">
+    <app-search-bar placeholder="Buscar por nome" (searchTerm)="onSearch($event)"></app-search-bar>
+    <p-dropdown
+      [options]="types"
+      [(ngModel)]="selectedType"
+      placeholder="Filtrar por tipo"
+      (onChange)="onTypeChange()"
+      optionLabel="name"
+      optionValue="value"
+      [showClear]="true"
+    ></p-dropdown>
+  </div>
+  <app-loading-spinner *ngIf="loading" message="Carregando Pokémon..."></app-loading-spinner>
+  <app-empty-state
+    *ngIf="!loading && items.length === 0"
+    message="Nenhum Pokémon encontrado."
+  ></app-empty-state>
+  <div class="grid" *ngIf="!loading && items.length > 0">
+    <app-pokemon-card
+      *ngFor="let p of items"
+      [pokemon]="p"
+      (cardClick)="onCardClick(p)"
+    ></app-pokemon-card>
+  </div>
+  <p-paginator
+    *ngIf="!loading && totalRecords > pageSize && !selectedType"
+    [rows]="pageSize"
+    [totalRecords]="totalRecords"
+    (onPageChange)="onPageChange($event)"
+  ></p-paginator>
+</div>

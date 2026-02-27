@@ -1,0 +1,9 @@
+<div class="types-list">
+  <h2>Tipos</h2>
+  <app-loading-spinner *ngIf="loading" message="Carregando tipos..."></app-loading-spinner>
+  <div class="chips" *ngIf="!loading">
+    <a *ngFor="let t of types" [routerLink]="['/types', t.name]" class="type-link">
+      <app-type-chip [typeName]="t.name"></app-type-chip>
+    </a>
+  </div>
+</div>

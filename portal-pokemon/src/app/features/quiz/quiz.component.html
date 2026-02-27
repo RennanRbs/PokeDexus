@@ -1,0 +1,19 @@
+<div class="quiz">
+  <h2>Quiz</h2>
+  <p class="score">Pontuação: {{ score }}</p>
+  <app-loading-spinner *ngIf="loading" message="Carregando pergunta..."></app-loading-spinner>
+  <div *ngIf="!loading && pokemonList.length" class="question">
+    <p class="q-text">{{ question }}</p>
+    <img [src]="imageUrl" alt="Pokémon" class="quiz-sprite" />
+    <div class="options">
+      <button
+        *ngFor="let opt of options"
+        pButton
+        [label]="opt | titlecase"
+        (click)="check(opt)"
+        [disabled]="answered"
+      ></button>
+    </div>
+    <button *ngIf="answered" pButton label="Próxima" (click)="nextQuestion()" class="next-btn"></button>
+  </div>
+</div>

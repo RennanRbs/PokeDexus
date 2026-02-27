@@ -1,0 +1,20 @@
+<div class="type-detail" *ngIf="type">
+  <h2>{{ typeName | titlecase }}</h2>
+  <div class="damage" *ngIf="type.damage_relations">
+    <div *ngIf="type.damage_relations.double_damage_to?.length">
+      <h4>Super efetivo contra</h4>
+      <app-type-chip *ngFor="let t of type.damage_relations.double_damage_to" [typeName]="t.name"></app-type-chip>
+    </div>
+    <div *ngIf="type.damage_relations.double_damage_from?.length">
+      <h4>Fraco contra</h4>
+      <app-type-chip *ngFor="let t of type.damage_relations.double_damage_from" [typeName]="t.name"></app-type-chip>
+    </div>
+  </div>
+  <h3>Pokémon deste tipo</h3>
+  <app-loading-spinner *ngIf="loading" message="Carregando..."></app-loading-spinner>
+  <div class="grid" *ngIf="!loading && pokemonList.length">
+    <a *ngFor="let p of pokemonList" [routerLink]="['/pokemon', p.id]" class="card-link">
+  <app-pokemon-card [pokemon]="p"></app-pokemon-card>
+</a>
+  </div>
+</div>

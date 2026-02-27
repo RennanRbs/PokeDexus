@@ -1,0 +1,7 @@
+<div class="stats-list">
+  <div class="stat-row" *ngFor="let s of stats">
+    <span class="stat-name">{{ s.name }}</span>
+    <p-progressBar [value]="(s.value / maxValue) * 100" [showValue]="false"></p-progressBar>
+    <span class="stat-value">{{ s.value }}</span>
+  </div>
+</div>

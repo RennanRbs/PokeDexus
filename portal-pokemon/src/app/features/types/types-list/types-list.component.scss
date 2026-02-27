@@ -1,0 +1,11 @@
+.types-list {
+  max-width: 800px;
+  margin: 0 auto;
+  h2 { margin-top: 0; }
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .type-link { text-decoration: none; }
+}
