@@ -1,5 +1,7 @@
 # Portal Pokémon
 
+Para visão geral do repositório, screenshots e documentação em PT/EN, veja o [README principal](../README.md).
+
 Projeto Angular 15 + PrimeNG que consome a [PokeAPI](https://pokeapi.co/) para listar Pokémon, tipos, habilidades, itens, quiz e montar uma equipe de até 6 Pokémon.
 
 ## Stack
